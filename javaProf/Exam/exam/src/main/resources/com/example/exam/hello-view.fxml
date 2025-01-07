@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exam.RestaurantController">
+    <!-- Top Buttons -->
+    <HBox spacing="10" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="10.0">
+        <Button text="Client" fx:id="showClientButton" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" onAction="#showClientSection"/>
+        <Button text="Commande" fx:id="showCommandeButton" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" onAction="#showCommandeSection"/>
+    </HBox>
+
+    <!-- StackPane to switch between Client and Commande Sections -->
+    <StackPane AnchorPane.topAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.bottomAnchor="10.0">
+        <!-- Client Section -->
+        <VBox fx:id="clientSection" spacing="10">
+            <Label text="Client Management" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <HBox spacing="10">
+                <VBox spacing="5">
+                    <Label text="Nom:"/>
+                    <TextField fx:id="clientNomField" promptText="Enter Nom"/>
+                    <Label text="Prenom:"/>
+                    <TextField fx:id="clientPrenomField" promptText="Enter Prenom"/>
+                    <Label text="Email:"/>
+                    <TextField fx:id="clientEmailField" promptText="Enter Email"/>
+                    <Label text="Telephone:"/>
+                    <TextField fx:id="clientTelephoneField" promptText="Enter Telephone"/>
+                    <Button fx:id="addClientButton" text="Add Client" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" onAction="#addClient"/>
+                    <Button fx:id="deleteClientButton" text="Delete Client" style="-fx-background-color: #f44336; -fx-text-fill: white;" onAction="#deleteClient"/>
+                </VBox>
+                <TableView fx:id="clientTable" prefWidth="600" prefHeight="200">
+                    <columns>
+                        <TableColumn text="ID" fx:id="clientIdColumn"/>
+                        <TableColumn text="Nom" fx:id="clientNomColumn"/>
+                        <TableColumn text="Prenom" fx:id="clientPrenomColumn"/>
+                        <TableColumn text="Email" fx:id="clientEmailColumn"/>
+                        <TableColumn text="Telephone" fx:id="clientTelephoneColumn"/>
+                    </columns>
+                </TableView>
+            </HBox>
+        </VBox>
+
+        <!-- Commande Section -->
+        <VBox fx:id="commandeSection" spacing="10" visible="false">
+            <Label text="Commande Management" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <HBox spacing="10">
+                <VBox spacing="5">
+                    <Label text="Client:"/>
+                    <ComboBox fx:id="commandeClientComboBox" promptText="Select Client"/>
+                    <Label text="Statut:"/>
+                    <TextField fx:id="commandeStatutField" promptText="Enter Statut"/>
+                    <Label text="Total:"/>
+                    <TextField fx:id="commandeTotalField" promptText="Enter Total"/>
+                    <Button fx:id="addCommandeButton" text="Add Commande" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" onAction="#addCommande"/>
+                    <Button fx:id="deleteCommandeButton" text="Delete Commande" style="-fx-background-color: #f44336; -fx-text-fill: white;" onAction="#deleteCommande"/>
+                </VBox>
+                <TableView fx:id="commandeTable" prefWidth="600" prefHeight="200">
+                    <columns>
+                        <TableColumn text="ID" fx:id="commandeIdColumn"/>
+                        <TableColumn text="Client" fx:id="commandeClientColumn"/>
+                        <TableColumn text="Statut" fx:id="commandeStatutColumn"/>
+                        <TableColumn text="Total" fx:id="commandeTotalColumn"/>
+                        <TableColumn text="Date" fx:id="commandeDateColumn"/>
+                    </columns>
+                </TableView>
+            </HBox>
+        </VBox>
+    </StackPane>
+</AnchorPane>

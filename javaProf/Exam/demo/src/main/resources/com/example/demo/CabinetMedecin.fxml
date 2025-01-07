@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo.CabinetController" spacing="10" padding="10">
+    <TextField fx:id="searchField" promptText="Search Patients..." />
+    <Button fx:id="searchPatientButton" text="Search" onAction="#searchPatients" />
+    <ListView fx:id="patientListView" />
+    <Button text="Add Patient" onAction="#addPatient" />
+    <Button text="Delete Patient" onAction="#deletePatient" />
+
+    <Separator />
+
+    <ListView fx:id="medecinListView" />
+    <Button text="Add Medecin" onAction="#addMedecin" />
+    <Button text="Delete Medecin" onAction="#deleteMedecin" />
+
+    <Separator />
+
+    <ListView fx:id="consultationListView" />
+    <Button text="Delete Consultation" onAction="#deleteConsultation" />
+</VBox>
