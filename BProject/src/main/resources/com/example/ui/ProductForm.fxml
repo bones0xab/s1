@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.ui.ProductController" spacing="10" alignment="CENTER" >
+    <VBox spacing="5">
+        <HBox spacing="10">
+            <Label text="Product ID:" />
+            <TextField fx:id="txtProductId" promptText="Enter Product ID" />
+        </HBox>
+        <HBox spacing="10">
+            <Label text="Product Name:" />
+            <TextField fx:id="txtProductName" promptText="Enter Product Name" />
+        </HBox>
+        <HBox spacing="10">
+            <Label text="Description:" />
+            <TextArea fx:id="txtDescription" promptText="Enter Description" prefHeight="60" />
+        </HBox>
+        <HBox spacing="10">
+            <Label text="Quantity:" />
+            <Spinner fx:id="spnQuantity" />
+        </HBox>
+        <HBox spacing="10">
+            <Label text="Price:" />
+            <TextField fx:id="txtPrice" promptText="Enter Price" />
+        </HBox>
+    </VBox>
+    <HBox spacing="10">
+        <Button fx:id="btnSave" text="Save" onAction="#handleSaveProduct" />
+        <Button fx:id="btnDelete" text="Delete" onAction="#handleDeleteProduct" />
+        <Button fx:id="btnClear" text="Clear" onAction="#handleClearFields" />
+    </HBox>
+    <TableView fx:id="tblProducts" prefHeight="200" prefWidth="400">
+        <columns>
+            <TableColumn text="Product ID" />
+            <TableColumn text="Name" />
+            <TableColumn text="Quantity" />
+            <TableColumn text="Price" />
+        </columns>
+    </TableView>
+</VBox>

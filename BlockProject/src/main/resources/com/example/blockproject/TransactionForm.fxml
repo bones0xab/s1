@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" alignment="TOP_CENTER" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.blockproject.TransactionController"
+      prefWidth="800" prefHeight="600">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Transaction Input Form -->
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints minWidth="100" prefWidth="150"/>
+            <ColumnConstraints minWidth="200" prefWidth="250"/>
+        </columnConstraints>
+
+        <Label text="Product:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <ComboBox fx:id="productComboBox" promptText="Select Product"
+                  GridPane.columnIndex="1" GridPane.rowIndex="0" maxWidth="Infinity"/>
+
+        <Label text="Transaction Type:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <ComboBox fx:id="transactionTypeComboBox" promptText="Select Type"
+                  GridPane.columnIndex="1" GridPane.rowIndex="1" maxWidth="Infinity"/>
+
+        <Label text="Quantity:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <TextField fx:id="quantityField" promptText="Enter quantity"
+                   GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+        <Label text="Notes:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <TextArea fx:id="notesArea" promptText="Enter notes (optional)"
+                  GridPane.columnIndex="1" GridPane.rowIndex="3"
+                  prefRowCount="3"/>
+
+        <HBox spacing="10" alignment="CENTER_RIGHT"
+              GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Button text="Add Transaction" onAction="#handleAddTransaction"
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+        </HBox>
+    </GridPane>
+
+    <!-- Transaction Table -->
+    <TableView fx:id="transactionTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="productColumn" text="Product" prefWidth="150"/>
+            <TableColumn fx:id="typeColumn" text="Type" prefWidth="100"/>
+            <TableColumn fx:id="quantityColumn" text="Quantity" prefWidth="100"/>
+            <TableColumn fx:id="dateColumn" text="Date" prefWidth="200"/>
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+        </columnResizePolicy>
+    </TableView>
+
+    <!-- Back Button -->
+    <HBox alignment="CENTER_LEFT">
+        <Button text="Back to Dashboard" onAction="#handleBackToDashboard"
+                style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+    </HBox>
+
+</VBox>
